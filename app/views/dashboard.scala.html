@@ -1,0 +1,12 @@
+@(cardMatrix: Seq[(AppInfoCard, Seq[AppVersionCard])])(implicit messages: Messages)
+
+@main(messages("dashboard.title")) {
+
+    <div class="container-fluid">
+
+        @cardMatrix.map { row =>
+            @views.html.app.appCardRow(row._1, row._2, 4)
+        }
+
+    </div>
+}

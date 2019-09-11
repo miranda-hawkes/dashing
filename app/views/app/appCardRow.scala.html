@@ -1,0 +1,16 @@
+@import models.AppVersionCard
+@import views.html.app.{info => infoTemplates}
+@import views.html.app.{version => versionTemplates}
+
+@(info: AppInfoCard, row: Seq[AppVersionCard], numberOfColumns: Int)(implicit messages: Messages)
+
+<div class="row">
+    <div class="col-sm-@{12 / numberOfColumns}">
+        @infoTemplates.card(info)
+    </div>
+    @row.map { card =>
+        <div class="col-sm-@{12 / numberOfColumns}">
+            @versionTemplates.card(card)
+        </div>
+    }
+</div>
