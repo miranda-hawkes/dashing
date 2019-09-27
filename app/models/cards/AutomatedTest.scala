@@ -13,13 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package models.cards
 
-package models
+import models.Status
 
-sealed trait Status {
-
-}
-
-case object Red  extends Status
-case object Amber extends Status
-case object Green extends Status
+case class AutomatedTest(jobName: String,
+                         completionTime: String,
+                         status: Status)

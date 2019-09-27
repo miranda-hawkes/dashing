@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-package models
+package models.cards
 
-sealed trait Status {
-
-}
-
-case object Red  extends Status
-case object Amber extends Status
-case object Green extends Status
+case class LibraryDependencies(minorVersionsBehind: Int,
+                               majorVersionsBehind: Int)

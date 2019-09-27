@@ -16,10 +16,8 @@
 
 package models
 
-sealed trait Status {
+import models.cards.AutomatedTest
 
-}
-
-case object Red  extends Status
-case object Amber extends Status
-case object Green extends Status
+case class AutomatedTests(acceptance: Option[AutomatedTest] = None,
+                          smoke: Option[AutomatedTest] = None,
+                          performance: Option[AutomatedTest] = None)

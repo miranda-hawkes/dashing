@@ -1,12 +1,10 @@
-@(cardMatrix: Seq[(AppInfoCard, Seq[AppVersionCard])])(implicit messages: Messages)
+@(cardMatrix: Seq[Pipeline])(implicit messages: Messages)
 
 @main(messages("dashboard.title")) {
 
-    <div class="container-fluid">
-
+    <div id="main-container">
         @cardMatrix.map { row =>
-            @views.html.app.appCardRow(row._1, row._2, 4)
+            @views.html.pipelineRow(row.microservice, row.deployments, row.automatedTests)
         }
-
     </div>
 }

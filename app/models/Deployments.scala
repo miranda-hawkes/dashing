@@ -16,6 +16,9 @@
 
 package models
 
-case class AppInfoCard(name: String,
-                       description: String,
-                       lastCommitAuthor: String)
+import models.cards.Deployment
+
+case class Deployments(dev: Option[Deployment] = None,
+                       qa: Option[Deployment] = None,
+                       staging: Option[Deployment] = None,
+                       production: Option[Deployment] = None)

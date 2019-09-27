@@ -16,7 +16,9 @@
 
 package models
 
-case class AppVersionCard(title: String,
-                          description: String,
-                          lastUpdated: String,
-                          status: Status)
+import models.cards.{LibraryDependencies, Microservice}
+
+case class Pipeline(microservice: Microservice,
+                    libraryDependencies: LibraryDependencies,
+                    deployments: Deployments,
+                    automatedTests: AutomatedTests)

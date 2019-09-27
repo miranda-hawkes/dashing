@@ -1,0 +1,24 @@
+@import models.cards.Deployment
+@import models.{Red, Green, Amber, Status}
+
+@(deployment: Deployment)(implicit messages: Messages)
+
+@statusColour = {
+   @{deployment.status match {
+       case Red => "bg-danger"
+       case Green => "bg-warning"
+       case Amber => "bg-success"
+   }}
+}
+
+<div class="card @statusColour">
+    <p>@deployment.environment</p>
+    <h3>
+        @deployment.version
+    </h3>
+    <p class="timestamp">
+        Deployment time:
+        <br>
+        @deployment.deploymentTime
+    </p>
+</div>

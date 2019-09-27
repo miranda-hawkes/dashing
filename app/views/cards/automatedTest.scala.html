@@ -1,0 +1,23 @@
+@import models.cards.AutomatedTest
+@import models.{Amber, Green, Red}
+
+@(automatedTest: AutomatedTest)(implicit messages: Messages)
+
+@statusColour = {
+   @{automatedTest.status match {
+       case Red => "bg-danger"
+       case Green => "bg-warning"
+       case Amber => "bg-success"
+   }}
+}
+
+<div class="card @statusColour">
+    <h3>
+        @automatedTest.jobName
+    </h3>
+    <p class="timestamp">
+        Completed at:
+        <br>
+        @automatedTest.completionTime
+    </p>
+</div>

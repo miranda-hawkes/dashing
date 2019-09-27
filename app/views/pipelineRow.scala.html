@@ -1,0 +1,54 @@
+@import models.cards.Microservice
+@import views.html.cards
+
+@(microservice: Microservice,
+  deployments: Deployments,
+  tests: AutomatedTests)(implicit messages: Messages)
+
+<div class="row">
+
+    @cards.microservice(microservice)
+
+    @tests.acceptance.fold{
+        @cards.blank()
+    }{ acceptance =>
+        @cards.automatedTest(acceptance)
+    }
+
+    @deployments.dev.fold{
+        @cards.blank()
+    }{ dev =>
+        @cards.deployment(dev)
+    }
+
+    @deployments.qa.fold{
+        @cards.blank()
+    }{ qa =>
+        @cards.deployment(qa)
+    }
+
+    @tests.smoke.fold{
+        @cards.blank()
+    }{ smoke =>
+        @cards.automatedTest(smoke)
+    }
+
+    @deployments.staging.fold{
+        @cards.blank()
+    }{ staging =>
+        @cards.deployment(staging)
+    }
+
+    @tests.performance.fold{
+        @cards.blank()
+    }{ performance =>
+        @cards.automatedTest(performance)
+    }
+
+    @deployments.production.fold{
+        @cards.blank()
+    }{ production =>
+        @cards.deployment(production)
+    }
+
+</div>

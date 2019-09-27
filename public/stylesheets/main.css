@@ -1,0 +1,62 @@
+body {
+  background-color: black;
+}
+
+* {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  text-align: center;
+}
+
+.row {
+  display: grid;
+  grid-gap: 10px;
+  /* minmax(200px, 1fr) makes columns start out at a minimum size of 200px. */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  border: #D2222D;
+}
+
+.row:not(:first-child) {
+  margin-top: 10px;
+}
+
+.card {
+  color: #fff;
+  background-color: #238823;
+  padding: 0.1em;
+}
+
+.card > p {
+  font-size: 1rem;
+}
+
+.card > p.timestamp {
+  font-size: 0.8rem;
+}
+
+.card > h3 {
+  color: #fff!important;
+  background-color: inherit;
+  font-size: 1.75rem;
+  padding: 0.1em;
+}
+
+.microservice {
+  vertical-align: middle;
+}
+
+.blank-card {
+  background-color: darkgrey!important;
+}
+
+/* Card colour overrides (Red, Green, Amber) */
+.bg-danger {
+  background-color: #D2222D!important;
+}
+
+.bg-warning {
+  background-color: #FFBF00!important;
+}
+
+.bg-success {
+  background-color: #238823!important;
+}
